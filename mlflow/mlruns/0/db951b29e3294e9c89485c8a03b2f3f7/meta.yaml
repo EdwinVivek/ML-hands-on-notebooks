@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/myscripts/mlflow/mlruns/0/db951b29e3294e9c89485c8a03b2f3f7/artifacts
+end_time: 1729512294010
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: db951b29e3294e9c89485c8a03b2f3f7
+run_name: autolog-ex
+run_uuid: db951b29e3294e9c89485c8a03b2f3f7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729512281931
+status: 3
+tags: []
+user_id: EdwinVivekN

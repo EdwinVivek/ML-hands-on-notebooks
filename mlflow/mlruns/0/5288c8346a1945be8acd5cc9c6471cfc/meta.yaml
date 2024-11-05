@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/myscripts/mlflow/mlruns/0/5288c8346a1945be8acd5cc9c6471cfc/artifacts
+end_time: 1729419901869
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5288c8346a1945be8acd5cc9c6471cfc
+run_name: puzzled-fawn-578
+run_uuid: 5288c8346a1945be8acd5cc9c6471cfc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729419884061
+status: 3
+tags: []
+user_id: EdwinVivekN
