@@ -1,0 +1,27 @@
+{% extends 'startup.html' %}
+
+{%block body %}
+<ul>
+{% for s in sites %}
+<li><a href="#" onclick="theFunction('{{s}}')">{{s}}</a></li>
+{% endfor %}
+</ul>
+
+{% if description == "twitter" %}
+	<p>Content for twitter</p>
+{% elif description =="facebook" %}
+	<p>Content for facebook</p>
+{% elif description =="instagram" %}
+	<p>Content for instagram</p>
+{% else %}
+	<p>No description</p>
+{% endif %}
+
+
+
+<form id ="siteForm" action="" method="post" style="display: none;">
+	<input id="siteInput" name="site" type="hidden" value="" />
+</form>
+{%endblock %}
+
+
