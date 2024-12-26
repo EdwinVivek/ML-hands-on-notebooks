@@ -1,0 +1,94 @@
+{
+  "check_interval": 1,
+  "collectors": {
+    "default": {
+      "id": "default",
+      "trigger": {
+        "type": "evidently:collector_trigger:IntervalTrigger",
+        "interval": 5.0,
+        "last_triggered": 1734938380.6815443
+      },
+      "report_config": {
+        "metrics": [
+          {
+            "type": "evidently:metric:ColumnValueRangeMetric",
+            "options": {
+              "color": null,
+              "render": null,
+              "data_definition": null
+            },
+            "column_name": {
+              "type": "evidently:base:ColumnName",
+              "name": "values1",
+              "display_name": "values1",
+              "dataset": "main"
+            },
+            "left": 5.0,
+            "right": null
+          }
+        ],
+        "tests": [],
+        "options": {
+          "color": null,
+          "render": null,
+          "data_definition": null
+        },
+        "metadata": {},
+        "tags": [
+          "quality"
+        ]
+      },
+      "reference_path": "default_reference.parquet",
+      "project_id": "0193f226-b637-74fd-9135-5edb2bfc5303",
+      "api_url": "http://localhost:8000",
+      "api_secret": null,
+      "cache_reference": true,
+      "is_cloud": null,
+      "save_datasets": false
+    },
+    "default_test": {
+      "id": "default_test",
+      "trigger": {
+        "type": "evidently:collector_trigger:RowsCountTrigger",
+        "rows_count": 100
+      },
+      "report_config": {
+        "metrics": [],
+        "tests": [
+          {
+            "type": "evidently:test:TestNumberOfOutRangeValues",
+            "is_critical": true,
+            "column_name": {
+              "type": "evidently:base:ColumnName",
+              "name": "values1",
+              "display_name": "values1",
+              "dataset": "main"
+            },
+            "left": 5.0
+          }
+        ],
+        "options": {
+          "color": null,
+          "render": null,
+          "data_definition": null
+        },
+        "metadata": {},
+        "tags": [
+          "quality"
+        ]
+      },
+      "reference_path": "default_test_reference.parquet",
+      "project_id": "0193f226-b637-74fd-9135-5edb2bfc5303",
+      "api_url": "http://localhost:8000",
+      "api_secret": null,
+      "cache_reference": true,
+      "is_cloud": null,
+      "save_datasets": false
+    }
+  },
+  "storage": {
+    "type": "evidently:collector_storage:InMemoryStorage",
+    "max_log_events": 10
+  },
+  "autosave": true
+}
