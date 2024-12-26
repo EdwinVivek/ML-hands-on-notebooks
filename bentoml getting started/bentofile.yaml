@@ -1,0 +1,10 @@
+service: "service:MyModel"
+labels:
+    owner: ed
+    stage: dev
+include:
+- "*.py"
+python:
+    packages:
+    - scikit-learn
+    - pandas
