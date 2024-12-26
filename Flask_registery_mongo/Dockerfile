@@ -12,4 +12,9 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 EXPOSE 5000
 COPY . .
-CMD [ "python", "app.py" ]
+#CMD [ "python", "app.py" ]
+CMD flask run -h 0.0.0.0 -p 5000
+
+
+#command to run app in CLI
+#docker run -d -p 5000:5000 mongo-docker

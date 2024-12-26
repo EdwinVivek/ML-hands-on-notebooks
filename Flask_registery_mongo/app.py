@@ -13,7 +13,7 @@ def MongoDB():
     records = db.register
     return records
     
-records = MongoDB()
+#records = MongoDB()
 
 
 ##Connect with Docker Image###
@@ -34,7 +34,7 @@ def dockerMongoDB():
     })
     return records
 
-#records = dockerMongoDB()
+records = dockerMongoDB()
 
 
 @app.route("/startup")
