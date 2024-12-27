@@ -1,0 +1,83 @@
+Generic OAuth UI - Me url, RevokeAccessToken, Additional Parameters 
+WebDS oauth tab - tiles count in tab, tile increase space on add tile, tile enable/disable all button
+refresh data source
+
+
+
+Authorize button (on scope change?)
+switch button - disable/enable each tile to show/hide connections from designer list
+user permissions
+Generic OAuth UI - validate connection name in server (optional)
+
+
+generic oauth for cloud:
+* enable service connectors in cloud
+* api/v4.0/settings API support in cloud
+
+
+check in build:
+empty connections - need to check admin error msg 
+delete, reauthorize in connected account
+acc icon missing in connected accounts 
+switch btn hides web connector?
+-----------
+
+
+
+Known cases:
+API - /v4.0/settings/oauth-configuration  - {"{\"Message\":\"Failed to update oauth configuration.\",\"StatusCode\":9003}"}
+Cancel data change alter wont work for config oauth 1st tile_
+onAuthLoginSuccess - passing conn name from service required? no, using selectedAccount.ConnectionName (onGenericOAuthConnChange)
+Tile Deleted - oauth refresh token & reauthorize will fail, edit connection change account will fail. Workaround - recreate tile, link acc to another tile (feature)
+Tile Disabled - ?
+
+
+Google:
+https://accounts.google.com/o/oauth2/auth?
+https://www.googleapis.com/oauth2/v4/token?
+103250475154-4843e54dsbi3stp0v365h0qtdetmhak1.apps.googleusercontent.com
+izkRyZZx9jyfuRwTxuGlNy5K
+email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive.metadata.readonly          https://www.googleapis.com/auth/drive.readonly
+https://www.googleapis.com/oauth2/v4/token?
+
+QBO: (123146177736759)
+https://appcenter.intuit.com/connect/oauth2?
+https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+Q0DvmW8dcdufHgUwK7GTlvHXn5Fg32TUogvv38CFoBK8Q8L70c
+ENwxhvQdObenVgq5ek2EPLiEP1LC4o516WSnddDp
+com.intuit.quickbooks.accounting openid profile email
+https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+
+https://sandbox-quickbooks.api.intuit.com/v3/company/123146177736759/query?query=select * from Account
+
+
+
+https://data.boldbi.com:443/v1.0/oauth/agent
+http://localhost:57785/bi/designer/v1.0/oauth/agent
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
+appending to end of line
