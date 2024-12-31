@@ -1,36 +1,47 @@
 import pandas as pd
 import os
 import sqlalchemy as db
-from House_Price_Prediction import *
+from House_price_prediction import *
 
 class MonitorModel():
     def __init__(self):
         self.house = HousePricePrediction()
-
-    def get_reference_data(self):
-        reference = self.house.execute_features_store()
-
+        self.features = None
     
     def push_feedback_to_db(self):
-        engine = db.create_engine()
-        df = pd.read_csv(os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.path.pardir)), "serving/feedback.csv"))
-        df_X = df.drop([["house_id", "prediction"]])
-        df_y = df[["event_timestamp","prediction"]]
-        df_X.to_sql("house_features_sql", con=engine, if_exists="append")
-        df_y.to_sql("house_target_sql", con=engine, if_exists="append")
-        start_date = reference.max_date
+        start_date = datetime.now() - timedelta(days=2)
+
+        self.features = self.house.get_historical_features()
+        last_id = self.features.loc[self.features["house_id"].idxmax()]["house_id"]
+        path = os.getcwd() + "//serving//feedback.csv"
+        #path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.path.pardir)), "serving/feedback.csv")
+        data = pd.read_csv(path, parse_dates=["event_timestamp"])
+        df = data[data["event_timestamp"] > start_date]
+        df["house_id"] = range(last_id+1, last_id + len(df)+1)
+
+        print(df.head())
+        df_X = df.drop("prediction", axis=1)
+        df_y = df[["event_timestamp","house_id"]]
+        self.house.save_df_to_postgres(df_X, df_y, 'append')
         end_date = df.loc[df["event_timestamp"].idxmax()]["event_timestamp"]
-        self.house.materialize(start = start_date, end_date = end_date)
+        self.house.materialize(start_date=start_date, end_date = end_date)
         print("Feedback data pushed to online feature store successfully!")
-        self.get_current_data(engine, start_date, end_date)
-
+        
     
-    def get_current_data(self,engine, start_date, end_date):
-       entity_df_ref = pd.read_sql(str.format("select house_id from pulic.house_features_sql where event_timestamp <= {0}", start_date)).to_dict(orient="records")
-       reference =  house.getonlinefeatures(entity_df_ref, features)
+    def get_reference_and_current_data(self, start_date, end_date):
+       feature_list=[
+            "house_features:area",
+            "house_features:bedrooms",
+            "house_features:mainroad"
+        ]
+       entity_df_ref = pd.DataFrame(self.features["house_id"]).to_dict(orient="records")
+       reference =  self.house.get_online_features(entity_df_ref, feature_list)
+       connstr = 'postgresql+psycopg://postgres:Syncfusion%40123@localhost:5432/feast_offline'
+       engine = db.create_engine(connstr)
+       entity_df_cur = pd.read_sql(str.format("select house_id from public.house_features_sql where event_timestamp >= '{0}'", start_date.strftime(r'%Y-%m-%d %H:%M:%S')), con=engine)
+       current = self.house.get_online_features(entity_df_cur, feature_list)
+       return (reference, current)
 
-       entity_df_cur = pd.read_sql(str.format("select house_id from pulic.house_features_sql where event_timestamp > {0}", start_date)).to_dict(orient="records")
-       current = house.getonlinefeatures(entity_df_cur, features)
-
-    def monitor_drift(self):
-        pass
+    def monitor_drift(self, reference, current):
+        print(reference)
+        print(current)
