@@ -1,7 +1,11 @@
-import pandas as pd
+import sys
 import os
+sys.path.append(os.getcwd())
+
+import pandas as pd
 import sqlalchemy as db
 from House_price_prediction import *
+
 
 class MonitorModel():
     def __init__(self):
@@ -45,3 +49,13 @@ class MonitorModel():
     def monitor_drift(self, reference, current):
         print(reference)
         print(current)
+
+
+if __name__ == "__main__":
+    #m = MonitorModel()
+    print("main called")
+    if len(sys.argv) > 1:
+        for i, arg in enumerate(sys.argv):
+            print(f"Argument {i}: {arg}")
+    else:
+        print("No arguments passed.")
