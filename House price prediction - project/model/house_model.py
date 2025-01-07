@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 import pickle
 
 class HouseModel:
-    def __init__(self, features, target):
+    def __init__(self, features=None, target=None):
         self.features = features
         self.target = target
         self.x_train = None
