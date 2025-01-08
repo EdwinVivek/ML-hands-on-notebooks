@@ -25,7 +25,7 @@ class MonitorModel():
 
         print(df.head())
         df_X = df.drop("prediction", axis=1)
-        df_y = df[["event_timestamp","house_id"]]
+        df_y = df[["event_timestamp","house_id", "prediction"]]
         self.house.save_df_to_postgres(df_X, df_y, 'append')
         end_date = df.loc[df["event_timestamp"].idxmax()]["event_timestamp"]
         self.house.materialize(start_date=start_date, end_date = end_date)
