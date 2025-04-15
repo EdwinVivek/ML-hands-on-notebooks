@@ -8,7 +8,7 @@ app.secret_key = "testing"
 
 # #connect to your Mongo DB database
 def MongoDB():
-    client = MongoClient("mongodb+srv://edwin:coolcomp123@ed0.f1hpi.mongodb.net/?retryWrites=true&w=majority")
+    client = MongoClient("mongodb+srv://edwin:*****@ed0.f1hpi.mongodb.net/?retryWrites=true&w=majority")
     db = client.get_database('sample_mflix')
     records = db.register
     return records
