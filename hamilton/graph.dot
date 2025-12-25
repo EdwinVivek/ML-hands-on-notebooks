@@ -36,15 +36,6 @@ digraph {
 			style="rounded,filled",
 			width=0.82083];
 	}
-	spend	[fillcolor="#b4d8e4",
-		fontname=Helvetica,
-		height=0.88333,
-		label=<<b>spend</b><br /><br /><i>Series</i>>,
-		margin=0.15,
-		pos="281.52,31.8",
-		shape=rectangle,
-		style="rounded,filled",
-		width=0.85208];
 	acquisition_cost_rolling_mean_cols	[fillcolor="#FFC857",
 		fontname=Helvetica,
 		height=0.88333,
@@ -54,16 +45,6 @@ digraph {
 		shape=rectangle,
 		style="rounded,filled",
 		width=3.5396];
-	spend -> acquisition_cost_rolling_mean_cols	[pos="e,427.95,31.8 312.68,31.8 338.43,31.8 377.42,31.8 416.62,31.8"];
-	raw_dataset	[fillcolor="#b4d8e4",
-		fontname=Helvetica,
-		height=0.88333,
-		label=<<b>raw_dataset</b><br /><br /><i>DataFrame</i>>,
-		margin=0.15,
-		pos="67.425,113.8",
-		shape=rectangle,
-		style="rounded,filled",
-		width=1.3938];
 	acquisition_cost_rolling_mean_7	[fillcolor="#FFC857",
 		fontname=Helvetica,
 		height=0.88333,
@@ -73,6 +54,15 @@ digraph {
 		shape=rectangle,
 		style="rounded,filled",
 		width=3.2687];
+	raw_dataset	[fillcolor="#b4d8e4",
+		fontname=Helvetica,
+		height=0.88333,
+		label=<<b>raw_dataset</b><br /><br /><i>DataFrame</i>>,
+		margin=0.15,
+		pos="67.425,113.8",
+		shape=rectangle,
+		style="rounded,filled",
+		width=1.3938];
 	raw_dataset -> acquisition_cost_rolling_mean_7	[pos="e,163.36,113.8 117.89,113.8 128.48,113.8 140.13,113.8 152.19,113.8"];
 	raw_dataset_cols	[fillcolor="#b4d8e4",
 		fontname=Helvetica,
@@ -83,5 +73,15 @@ digraph {
 		shape=rectangle,
 		style="rounded,filled",
 		width=1.8729];
+	spend	[fillcolor="#b4d8e4",
+		fontname=Helvetica,
+		height=0.88333,
+		label=<<b>spend</b><br /><br /><i>Series</i>>,
+		margin=0.15,
+		pos="281.52,31.8",
+		shape=rectangle,
+		style="rounded,filled",
+		width=0.85208];
 	raw_dataset_cols -> spend	[pos="e,250.39,31.8 135.24,31.8 169.33,31.8 209.72,31.8 239.24,31.8"];
+	spend -> acquisition_cost_rolling_mean_cols	[pos="e,427.95,31.8 312.68,31.8 338.43,31.8 377.42,31.8 416.62,31.8"];
 }

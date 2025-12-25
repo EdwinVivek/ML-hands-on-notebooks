@@ -1,7 +1,6 @@
 # simple_pipeline.py
 from sklearn import datasets
 from sklearn import svm
-
 import pandas as pd
 
 def digits_df() -> pd.DataFrame:
