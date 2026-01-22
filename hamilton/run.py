@@ -21,6 +21,8 @@ result = dr.execute(
   [
     "acquisition_cost_rolling_mean_7",
     "acquisition_cost_rolling_mean_cols",
+    "stats",
+    "concat_sales_returns"
     #"predicted_digits"
   ],
   #inputs={"input_digits": load_some_digits().sample(5)}
@@ -35,6 +37,7 @@ gr = dr.display_all_functions(
   deduplicate_inputs=True,
 )
 
+dr.display_all_functions("graph.png")
 
 # Display only what will be executed.
 dr.visualize_execution(
