@@ -48,6 +48,11 @@ def parameter_func(myparam: str) -> str:
 def concat_sales_returns(sales_table: str, returns_table: str) -> str:
   return f"{sales_table}_{returns_table}"
 
+def inseries1a() -> pd.Series:
+  return pd.Series([2])
+
+def inseries2a() -> pd.Series:
+  return pd.Series([3])
 
 @parameterize_extract_columns(
     ParameterizedExtract(

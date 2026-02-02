@@ -19,10 +19,11 @@ dr = (
 )
 result = dr.execute(
   [
-    "acquisition_cost_rolling_mean_7",
-    "acquisition_cost_rolling_mean_cols",
-    "stats",
-    "concat_sales_returns"
+    #"acquisition_cost_rolling_mean_7",
+    #"acquisition_cost_rolling_mean_cols",
+    #"stats",
+    #"concat_sales_returns",
+    "outseries1a"
     #"predicted_digits"
   ],
   #inputs={"input_digits": load_some_digits().sample(5)}
